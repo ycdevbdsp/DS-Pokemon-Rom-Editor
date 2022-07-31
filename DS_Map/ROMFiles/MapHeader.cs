@@ -165,7 +165,7 @@ namespace DSPRE.ROMFiles {
     /// </summary>
     public class HeaderDP : MapHeader {
         #region Fields (5)
-        public byte unknown1 { get; set; }
+        public byte buildingDataID { get; set; }
         public ushort locationName { get; set; }
         #endregion Fields
 
@@ -174,7 +174,7 @@ namespace DSPRE.ROMFiles {
             this.ID = headerNumber;
             using (BinaryReader reader = new BinaryReader(data)) {
                 areaDataID = reader.ReadByte();
-                unknown1 = reader.ReadByte();
+                buildingDataID = reader.ReadByte();
                 matrixID = reader.ReadUInt16();
                 scriptFileID = reader.ReadUInt16();
                 levelScriptID = reader.ReadUInt16();
@@ -200,7 +200,7 @@ namespace DSPRE.ROMFiles {
             MemoryStream newData = new MemoryStream();
             using (BinaryWriter writer = new BinaryWriter(newData)) {
                 writer.Write(areaDataID);
-                writer.Write(unknown1);
+                writer.Write(buildingDataID);
                 writer.Write(matrixID);
                 writer.Write(scriptFileID);
                 writer.Write(levelScriptID);
